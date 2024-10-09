@@ -9,6 +9,7 @@ body {
     width: 100%;
     font-family: "Afacad Flux", sans-serif;
     font-weight: 500;
+    background-color: #F8F8F0;
 }
 
 .header{
@@ -46,4 +47,51 @@ body {
 
 .title{
     text-align: center;
+    margin-bottom: 10%;
+}
+
+.subtitle{
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;  /* Centra horizontalmente */
+    align-items: center; 
+    width: 100%;
+}
+
+.blockCreator{
+    border: 1px solid #ccc;
+    background-color: #FFFF;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    transition: transform 0.2s;
+    padding: 10px;
+    text-align: center;
+}
+
+.blockText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.blockInput{
+    min-width: 273px;
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+}
+
+.labelText{
+    text-align: right;
+}
+
+.blockButton{
+    border: 1px solid;
+    margin: 15px;
 }
