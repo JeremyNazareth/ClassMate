@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bloques</title>
     <link rel="stylesheet" href="../assets/styles.css"> <!-- Enlaza tu archivo CSS aquí -->
+    <script src="../assets/script.js" defer></script> <!-- Enlaza tu archivo JS aquí -->
 </head>
 <body>
     <header class="header">
@@ -20,12 +21,14 @@
     <h1 class="title">
         Bloques
     </h1>
-    <h2 class="subtitle">
-        Creación de bloques
-    </h2>
+    
     <div class="container">
         <div class="blockCreator">
+            <h2 class="subtitle">
+                Creación de bloques
+            </h2>
             <div class="blockText">
+                
                 <form>
                     <table>
                         <tr>
@@ -54,31 +57,55 @@
                 </form>
                 
             </div>
+            <button class="blockButton" onclick="createblock()">
+                Crear Bloque
+            </button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="blockCreator">
+            <h2 class="subtitle">
+                Bloque creado
+            </h2>
+            <div class="blockText">
+                
+                <form>
+                    <table>
+                        <tr>
+                            <td class="labelText">
+                                <label for="blockName">
+                                    Nombre:
+                                </label>
+                            </td>
+                            <td>
+                                <pre id="output"></pre>
+                            </td>                            
+                        </tr>
+                        <tr>
+                            <td class="labelText">
+                                <label for="blockDescription" class="labelText">
+                                    Descripción:
+                            </td>
+                            <td>
+                                <pre id="description"></pre>
+                            </td>
+                        </tr>
+                        </label>
+                        
+                    </table>
+                    
+                </form>
+                
+            </div>
             <button class="blockButton">
                 Crear Bloque
             </button>
         </div>
     </div>
     
+
+
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </html>
