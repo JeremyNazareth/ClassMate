@@ -1,0 +1,96 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.container {
+    display: flex;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+    margin-right: 20px;
+}
+
+.form-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-section input[type="text"] {
+    width: 50px;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-section input[type="text"]:last-child {
+    width: 30px;
+}
+
+.form-section .add-note-btn,
+.form-section .delete-note-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-section .add-note-btn {
+    background-color: #007bff;
+}
+
+.form-section .add-note-btn:hover {
+    background-color: #0056b3;
+}
+
+.form-section .delete-note-btn {
+    background-color: #dc3545;
+    margin-left: 10px;
+}
+
+.form-section .delete-note-btn:hover {
+    background-color: #c82333;
+}
+
+.form-section .calculate-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-section .calculate-btn:hover {
+    background-color: #117a8b;
+}
+
+.result-section {
+    background-color: #e0f7fa;
+    border: 1px solid #b2ebf2;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+}
+
+.result-section h2 {
+    margin-top: 0;
+}
