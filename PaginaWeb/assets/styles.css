@@ -81,6 +81,28 @@ body {
     width: 100%;
 }
 
+.blockOutput{
+    border: 1px solid #ccc;
+    background-color: #FFFF;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    transition: transform 0.2s;
+    padding: 25px;
+    text-align: center;
+}
+
+.blockOutput h2{
+    margin: 0;
+}
+
+.blockOutput .blockText{
+    align-items: start;
+    justify-content: start;
+    margin: 0;
+    margin-left: 14px;
+}
+
 .blockInput{
     min-width: 273px;
     background-color: transparent;
@@ -88,10 +110,20 @@ body {
     outline: none;
 }
 
+.container-down{
+    margin-top: 30px;
+}
+
 .labelText{
     text-align: right;
 }
 
+.labelOutput{
+    width: 100%;
+    text-align: start;
+    margin-right: 0;
+    margin-left: 0;
+}
 .blockButton{
     padding: 5px;
     border: 1px solid;

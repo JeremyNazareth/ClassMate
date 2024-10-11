@@ -15,12 +15,11 @@ function createblock () {
 
         };
 
-        document.getElementById('output').textContent = JSON.stringify
-        document.getElementById('nameBlock')
+        document.getElementById('idOutput').textContent = blocks[id].id;
+        document.getElementById('nameOutput').textContent = blocks[id].name;
+        document.getElementById('descriptionOutput').textContent = blocks[id].description;
 
     } else{
         alert('Complete los campos.');
     }
 }
-
-document.getElementById('createBlock').addEventListener('click', createBlock);

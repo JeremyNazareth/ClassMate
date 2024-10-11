@@ -63,9 +63,9 @@
         </div>
     </div>
     
-    <div class="container">
-        <div class="blockCreator">
-            <h2 class="subtitle">
+    <div class="container container-down">
+        <div class="blockOutput">
+            <h2 >
                 Bloque creado
             </h2>
             <div class="blockText">
@@ -74,21 +74,32 @@
                     <table>
                         <tr>
                             <td class="labelText">
-                                <label for="blockName">
-                                    Nombre:
+                                <label for="idOutput">
+                                    Id:
                                 </label>
                             </td>
-                            <td>
-                                <pre id="output"></pre>
+                            <td class="labelOutput">
+                                <div id="idOutput"></div>
                             </td>                            
                         </tr>
                         <tr>
                             <td class="labelText">
-                                <label for="blockDescription" class="labelText">
-                                    Descripción:
+                                <label for="nameOutput">
+                                    Nombre:
+                                </label>
                             </td>
-                            <td>
-                                <pre id="description"></pre>
+                            <td class="labelOutput">
+                                <div id="nameOutput"></div>
+                            </td>                            
+                        </tr>
+                        <tr>
+                            <td class="labelText">
+                                <label for="descriptionOutput" class="labelText">
+                                    Descripción:
+                                </label>
+                            </td>
+                            <td class="labelOutput">
+                                <div id="descriptionOutput"></div>
                             </td>
                         </tr>
                         </label>
@@ -98,9 +109,6 @@
                 </form>
                 
             </div>
-            <button class="blockButton">
-                Crear Bloque
-            </button>
         </div>
     </div>
     
