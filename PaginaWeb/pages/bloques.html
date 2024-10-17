@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bloques</title>
     <link rel="stylesheet" href="../assets/styles.css"> <!-- Enlaza tu archivo CSS aquí -->
-    <script src="../assets/script.js" defer></script> <!-- Enlaza tu archivo JS aquí -->
+    <script src="../assets/createBlock.js" defer></script> <!-- Enlaza tu archivo JS aquí -->
+    <script src="../assets/block.js" defer></script> <!-- Enlaza tu archivo JS aquí -->
 </head>
 <body>
     <header class="header">
@@ -34,21 +35,21 @@
                     <table>
                         <tr>
                             <td class="labelText">
-                                <label for="blockName">
+                                <label for="labelName">
                                     Nombre:
                                 </label>
                             </td>
                             <td>
-                                <input type="text" placeholder="Ingresa el nombre del nuevo bloque..." class="blockInput" id="blockName">
+                                <input type="text" placeholder="Ingresa el nombre del nuevo bloque..." class="blockInput" id="labelName">
                             </td>                            
                         </tr>
                         <tr>
                             <td class="labelText">
-                                <label for="blockDescription" class="labelText">
+                                <label for="labelDescription" class="labelText">
                                     Descripción:
                             </td>
                             <td>
-                                <input type="text" placeholder="Ingresa una breve descripción del boque..." class="blockInput" id="blockDescription">
+                                <input type="text" placeholder="Ingresa una breve descripción del boque..." class="blockInput" id="labelDescription">
                             </td>
                         </tr>
                         </label>
