@@ -4,12 +4,15 @@
     box-sizing: border-box;
 }
 body {
+    font-family: "Afacad Flux", sans-serif;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8F8F0;;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: "Afacad Flux", sans-serif;
     font-weight: 500;
-    background-color: #F8F8F0;
 }
 
 .header{
@@ -59,7 +62,7 @@ body {
     display: flex;
     justify-content: center;  /* Centra horizontalmente */
     align-items: center; 
-    width: 100%;
+    border: 0;
 }
 
 .blockCreator{
@@ -110,8 +113,16 @@ body {
     outline: none;
 }
 
+.blockContainer{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    gap: 10%;
+    
+}
 .container-down{
-    margin-top: 30px;
 }
 
 .labelText{
