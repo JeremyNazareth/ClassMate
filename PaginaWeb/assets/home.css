@@ -50,7 +50,6 @@ body {
 
 .title{
     text-align: center;
-    margin-bottom: 10%;
 }
 
 .subtitle{
@@ -122,9 +121,11 @@ body {
     gap: 10%;
     
 }
-.container-down{
+.blocksContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 16px;
 }
-
 .labelText{
     text-align: right;
 }
