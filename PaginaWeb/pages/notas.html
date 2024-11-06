@@ -7,7 +7,7 @@
     <title>Calculadora de Notas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../assets/notas.css"><!-- Enlace al archivo CSS externo -->
-
+    <script src="../assets/grades.js" defer></script> <!-- Enlaza tu archivo JS aquí -->
 </head>
 <body>
             <header class="header">
@@ -26,8 +26,8 @@
     </h1>
     <div class="container">
         <div class="form-section">
-            <button class="add-note-btn" id="addNoteBtn"><i class="fas fa-plus"></i> Agregar nota</button>
-            <button class="delete-note-btn" id="deleteNoteBtn"><i class="fas fa-minus"></i> Eliminar nota</button>
+            <button class="add-note-btn" onclick="addNoteBtn()"><i class="fas fa-plus"></i> Agregar nota</button>
+            <button class="delete-note-btn" onclick="deleteNoteBtn()"><i class="fas fa-minus"></i> Eliminar nota</button>
             <div id="notesContainer">
                 <div class="note-entry">
                     <label for="nota1">Nota 1</label>
@@ -40,7 +40,7 @@
             <input type="text" id="nota-aprobacion" value="4">
             <label for="ponderacion-examen">Ponderación Examen</label>
             <input type="text" id="ponderacion-examen" value="30"> %
-            <button class="calculate-btn" id="calculateBtn">Calcular</button>
+            <button class="calculate-btn" onclick="calculateBtn()">Calcular</button>
         </div>
         <div class="result-section">
             <h2 id="averageResult">Promedio de notas = ?</h2>
@@ -48,62 +48,5 @@
         </div>
     </div>
 
-    <script>
-        const notesContainer = document.getElementById('notesContainer');
-        const addNoteBtn = document.getElementById('addNoteBtn');
-        const deleteNoteBtn = document.getElementById('deleteNoteBtn');
-        const calculateBtn = document.getElementById('calculateBtn');
-        const averageResult = document.getElementById('averageResult');
-        const examResult = document.getElementById('examResult');
-
-        // Función para agregar una nueva nota
-        addNoteBtn.addEventListener('click', () => {
-            const noteCount = notesContainer.getElementsByClassName('note-entry').length + 1;
-            const noteEntry = document.createElement('div');
-            noteEntry.classList.add('note-entry');
-            noteEntry.innerHTML = `
-                <label for="nota${noteCount}">Nota ${noteCount}</label>
-                <input type="text" class="nota">
-                <input type="text" class="ponderacion"> %
-            `;
-            notesContainer.appendChild(noteEntry);
-        });
-
-        // Función para eliminar la última nota
-        deleteNoteBtn.addEventListener('click', () => {
-            const noteEntries = notesContainer.getElementsByClassName('note-entry');
-            if (noteEntries.length > 1) {
-                notesContainer.removeChild(noteEntries[noteEntries.length - 1]);
-            }
-        });
-
-        // Función para calcular el promedio de notas
-        calculateBtn.addEventListener('click', () => {
-            const notes = document.getElementsByClassName('nota');
-            const ponderaciones = document.getElementsByClassName('ponderacion');
-            let totalWeightedScore = 0;
-            let totalWeight = 0;
-
-            for (let i = 0; i < notes.length; i++) {
-                const noteValue = parseFloat(notes[i].value);
-                const weightValue = parseFloat(ponderaciones[i].value);
-
-                if (!isNaN(noteValue) && !isNaN(weightValue)) {
-                    totalWeightedScore += noteValue * (weightValue / 100);
-                    totalWeight += weightValue;
-                }
-            }
-
-            const promedio = totalWeight > 0 ? (totalWeightedScore / (totalWeight / 100)).toFixed(2) : 0;
-            averageResult.textContent = `Promedio de notas = ${promedio}`;
-
-            // Cálculo de la nota necesaria en el examen para aprobar
-            const notaAprobacion = parseFloat(document.getElementById('nota-aprobacion').value);
-            const ponderacionExamen = parseFloat(document.getElementById('ponderacion-examen').value);
-            const notaNecesaria = ((notaAprobacion - (promedio * (1 - (ponderacionExamen / 100)))) / (ponderacionExamen / 100)).toFixed(2);
-
-            examResult.textContent = `Necesitarás un ${notaNecesaria} en el examen final para aprobar el curso.`;
-        });
-    </script>
 </body>
 </html>
