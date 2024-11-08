@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f5f7;
+    margin: 0;
+    padding: 0;
+}
+.board {
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.column {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    margin-right: 20px;
+    padding: 10px;
+    width: 280px;
+    position: relative;
+    word-wrap: break-word;
+}
+.column:last-child {
+    margin-right: 0;
+}
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.column-header input {
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    background: transparent;
+    font-weight: bold;
+    resize: none;
+    word-wrap: break-word;
+}
+.column-header input:focus {
+    outline: none;
+    border-bottom: 1px solid #ccc;
+}
+.column-header i {
+    cursor: pointer;
+    margin-left: 5px;
+}
+.task {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    margin-bottom: 10px;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+    border-top: 4px solid;
+    word-wrap: break-word;
+}
+.task:last-child {
+    margin-bottom: 0;
+}
+.task .delete-task {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #888;
+}
+.add-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    padding: 10px;
+    cursor: pointer;
+    margin: 20px;
+}
+.delete-column {
+    color: red;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.task .date-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.task .date-container button {
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 45%;
+}
+.status-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.modal-content input[type="date"] {
+    width: 80%;
+    margin: 10px 0;
+    padding: 8px;
+    font-size: 16px;
+}
+.modal-content button {
+    padding: 8px 16px;
+    margin-top: 10px;
+}
+.description-input {
+    width: 100%;
+    font-size: 14px;
+    border: none;
+    resize: none;
+    word-wrap: break-word;
+    overflow-y: auto;
+}
