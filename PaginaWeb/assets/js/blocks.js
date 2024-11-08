@@ -11,7 +11,7 @@ function createblock () {
     //statement to only create the block if the labels name and description aren't empty.
     if (labelName && labelDescription){
         //we increment by one the track of the ids and we create the new block with the new parameters from the labels.
-        const id = `blockId-${idCount++}`;
+        const id = `${idCount++}`;
         const newBlock = new Block(id,labelName,labelDescription)
         blocks.push(newBlock);
         //We retrieve the data for output purposes.
@@ -68,9 +68,21 @@ function showBlocks(){
                         </table>
                     </form>
                 </div>
+                <button class="delete-btn" onclick="deleteBlock('${block.id}')">Eliminar</button>
             </div>
+            
         </div>`;
         blockContainer.appendChild(blockDiv);
     }
     );
+}
+
+function deleteBlock(id){
+
+    const index = blocks.findIndex(block => block.id === id);
+
+    if (index !== -1) {
+        blocks.splice(index, 1);
+        showBlocks(); 
+    }
 }
