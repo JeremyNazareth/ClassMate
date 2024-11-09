@@ -68,7 +68,7 @@ function showBlocks(){
                         </table>
                     </form>
                 </div>
-                <button class="delete-btn" onclick="deleteBlock('${block.id}')">Eliminar</button>
+                <button class="btn btn-danger" onclick="deleteBlock('${block.id}')">Eliminar</button>
             </div>
             
         </div>`;

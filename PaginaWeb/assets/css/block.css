@@ -90,17 +90,3 @@
     color: white;
 }
 
-.delete-btn{
-    background-color: white;
-    color: black;
-    padding: 5px;
-    margin-left: 80%;
-    border-radius: 4px;
-    transition-duration: 0.4s;
-    border: 2px solid;
-}
-
-.delete-btn:hover{
-    background: red;
-    color: white;
-}

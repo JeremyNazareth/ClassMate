@@ -15,6 +15,12 @@ body {
     font-weight: 500;
 }
 
+h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+
 .header{
     background-color: blueviolet;
     display: flex;
@@ -55,4 +61,17 @@ body {
 .subtitle{
     text-align: center;
     margin-bottom: 2%;
+}
+
+.dropdown-menu {
+    padding: 5px;
+    text-align: start;
+    background-color: blueviolet;
+    justify-content: center;
+}
+
+.dropdown-item {
+    line-height: 0;
+    padding: 15px;
+    margin: 0 !important;
 }
