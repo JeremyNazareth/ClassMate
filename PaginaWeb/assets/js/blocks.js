@@ -1,3 +1,12 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const savedBlocks = sessionStorage.getItem('blocks');
+    if (savedBlocks) {
+        // Si existen datos guardados, conviértelos a objetos y cárgalos en el array `blocks`
+        blocks.push(...JSON.parse(savedBlocks));
+        // Muestra los bloques recuperados en la interfaz
+        showBlocks();
+    }
+});
 //this variable is added later to assign an id to a new block.
 let idCount = 0;
 const blocks = [];
@@ -14,6 +23,8 @@ function createblock () {
         const id = `${idCount++}`;
         const newBlock = new Block(id,labelName,labelDescription)
         blocks.push(newBlock);
+        //we convert the array in JSON and save it in a sessionStorage
+        sessionStorage.setItem('blocks', JSON.stringify(blocks));
         //We retrieve the data for output purposes.
         document.getElementById('idOutput').textContent = newBlock.id;
         document.getElementById('nameOutput').textContent = newBlock.name;
@@ -68,10 +79,12 @@ function showBlocks(){
                         </table>
                     </form>
                 </div>
-                <button class="btn btn-danger" onclick="deleteBlock('${block.id}')">Eliminar</button>
+                <button class="btn btn-primary" style="margin-top:10px;" onclick="redirectToDetails('${block.id}')" margin-right: 15px;">Ver bloque</button>
+                <button class="btn btn-danger" style="margin-top:10px;" onclick="deleteBlock('${block.id}')">Eliminar</button>
             </div>
             
         </div>`;
+        
         blockContainer.appendChild(blockDiv);
     }
     );
@@ -83,6 +96,11 @@ function deleteBlock(id){
 
     if (index !== -1) {
         blocks.splice(index, 1);
+        sessionStorage.setItem('blocks', JSON.stringify(blocks));
         showBlocks(); 
     }
+}
+
+function redirectToDetails(blockId){
+    window.location.href = `blockDetails.html?id=${blockId}`;
 }

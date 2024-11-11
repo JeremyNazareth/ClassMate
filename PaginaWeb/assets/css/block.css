@@ -7,7 +7,8 @@
 
 .blockCreator{
     border: 1px solid #ccc;
-    background-color: #FFFF;
+    background-color: blueviolet;
+    color: white;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 450px;
@@ -26,7 +27,9 @@
 
 .blockOutput{
     border: 1px solid #ccc;
-    background-color: #FFFF;
+    border-radius: 15px;
+    background-color: blueviolet;
+    color: white;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 450px;
@@ -46,9 +49,9 @@
     margin-left: 14px;
 }
 
-.blockInput{
+input {
     min-width: 273px;
-    background-color: transparent;
+    background-color: transparent !important;
     border-color: transparent;
     outline: none;
 }
