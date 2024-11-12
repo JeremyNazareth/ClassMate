@@ -102,5 +102,7 @@ function deleteBlock(id){
 }
 
 function redirectToDetails(blockId){
-    window.location.href = `blockDetails.html?id=${blockId}`;
+    const block = blocks.find(b => b.id === blockId);
+    sessionStorage.setItem("selectedBlock",JSON.stringify(block));
+    window.location.href = `blockDetails.html`;
 }
