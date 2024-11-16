@@ -29,6 +29,7 @@ function createblock () {
         document.getElementById('idOutput').textContent = newBlock.id;
         document.getElementById('nameOutput').textContent = newBlock.name;
         document.getElementById('descriptionOutput').textContent = newBlock.description;
+        console.log(newBlock.name)
         showBlocks();
     } else{
         alert('Complete los campos.'); //alert if the labels are empty.

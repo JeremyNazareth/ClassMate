@@ -11,6 +11,7 @@ function addNoteBtn (){
         <label for="nota${noteCount}">Nota ${noteCount}</label>
         <input type="text" class="nota">
         <input type="text" class="ponderacion"> %
+        
     `;
     notesContainer.appendChild(noteEntry);
 };
