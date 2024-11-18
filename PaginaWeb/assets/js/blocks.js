@@ -28,8 +28,7 @@ function createblock () {
         //We retrieve the data for output purposes.
         document.getElementById('idOutput').textContent = newBlock.id;
         document.getElementById('nameOutput').textContent = newBlock.name;
-        document.getElementById('descriptionOutput').textContent = newBlock.description;
-        console.log(newBlock.name)
+        document.getElementById('descriptionOutput').textContent = newBlock.description;        
         showBlocks();
     } else{
         alert('Complete los campos.'); //alert if the labels are empty.
@@ -106,4 +105,10 @@ function redirectToDetails(blockId){
     const block = blocks.find(b => b.id === blockId);
     sessionStorage.setItem("selectedBlock",JSON.stringify(block));
     window.location.href = `blockDetails.html`;
+}
+
+function consoleDebug(){
+    console.log(sessionStorage);
+    console.log(blocks);
+    console.log(sessionStorage.getItem("selectedBlock"));
 }

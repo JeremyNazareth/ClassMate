@@ -1,19 +1,17 @@
 let selectedBlock;
-console.log(sessionStorage.getItem('selectedBlock'));
-
 document.addEventListener("DOMContentLoaded", function() {
     
-    const selectedBlockData = JSON.parse(sessionStorage.getItem('selectedBlock'));
-    console.log(selectedBlockData)
-    console.log(selectedBlockData.name)
+    const selectedBlockData = JSON.parse(sessionStorage.getItem('selectedBlock'));    
     //Variables for data from Block selected
-    selectedBlock = new Block (selectedBlockData.id,selectedBlockData.name,selectedBlockData.description,selectedBlockData.grades)
-    console.log(selectedBlock)
+    selectedBlock = new Block (selectedBlockData.id,selectedBlockData.name,selectedBlockData.description,selectedBlockData.grades)    
+    console.log(selectedBlockData);
+    console.log(selectedBlock);
     let nameBlock = document.getElementById('nameSelectedBlock');
     let descriptionBlock = document.getElementById('descriptionSelectedBlock');    
     //To print the data of the JSON Block
     nameBlock.textContent = `${selectedBlock.name}`;
     descriptionBlock.textContent = `${selectedBlock.description}`;
+    showGrades();
 
 });
 
@@ -24,19 +22,23 @@ function addingGrade(){
     const gradeName = document.getElementById('gradeName').value;
     const grade = document.getElementById('grade').value;
     const ponderation = document.getElementById('ponderation').value;
-    console.log(gradeName,grade,ponderation);
-    console.log(selectedBlock); 
     selectedBlock.addGrade(gradeName,grade,ponderation);
+    
     saveBlockToSessionStorage();
     showGrades();
     event.preventDefault();
 }
 
+function removingGrade(index){    
+    selectedBlock.removeGrade(index)
+    showGrades();
+    saveBlockToSessionStorage();
+}
 function showGrades(){
     // Verificar si selectedBlock tiene calificaciones
     const gradesContainer = document.getElementById('gradesContainer');
     gradesContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos elementos
-
+    
     if (selectedBlock && selectedBlock.grades.length > 0) {
         selectedBlock.grades.forEach((grade, index) => {
             // Crear un contenedor para cada nota
@@ -46,7 +48,7 @@ function showGrades(){
                 <h3 style="width: 100%; margin-bottom: 5px;">${grade.name}</h3>
                 <p style="width: 50%;">${grade.grade}</p>
                 <p style="width: 50%;">${grade.ponderation}%</p>
-                <button class="btn btn-danger"> Eliminar nota</button>
+                <button class="btn btn-danger" onclick = "removingGrade(${index})"> Eliminar nota</button>
             `;
 
             gradesContainer.appendChild(gradeDiv);
@@ -60,11 +62,12 @@ function showGrades(){
 function saveBlockToSessionStorage() {
 
     if (selectedBlock) {
-        sessionStorage.setItem('selectedBlock', JSON.stringify(selectedBlock));
+        const block = blocks.find(b => b.id === selectedBlock.id)
+        block.grades = selectedBlock.grades
+        sessionStorage.setItem('blocks', JSON.stringify(blocks));
     } else {
         console.error('selectedBlock no está definido.');
     }
-    console.log(sessionStorage.getItem('selectedBlock'));
 }
 
 
