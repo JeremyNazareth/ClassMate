@@ -1,34 +1,14 @@
 .container {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     background-color: white;
     border: 1px solid #ddd;
+    width: 25%;
     border-radius: 8px;
     margin-top: 30px;
     padding: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.context-container{
-    display: flex;          
-    flex-direction: row;    
-    align-items: center;
-    text-align: center;
-    
-}
-
-.grades-container {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(15,15fr);
-    gap: 10px; 
-    padding: 12px;
-}
-
-.grade {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    align-items: center;    
 }
 
 #taskList {
@@ -59,12 +39,4 @@
 
 .status {
     font-weight: bold;
-}
-
-.tasks-container {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(15,15fr);
-    gap: 10px; 
-    padding: 12px;
 }
