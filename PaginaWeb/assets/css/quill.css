@@ -1,0 +1,67 @@
+.ql-container {
+    background-color: #ffffff; /* Fondo del editor */
+}
+  
+.ql-editor .ql-snow {
+    background-color: #ffffff; /* Fondo del área editable */
+    color: #000; /* Color del texto */
+}
+  
+.ql-toolbar {
+    background-color: #f4f4f4; /* Fondo de la barra de herramientas */
+    border: 1px solid #ccc; /* Bordes opcionales */
+}
+
+.editor-container {
+    width: 60%;
+}
+
+.modal {
+    display: none; /* Inicialmente está oculto */
+    position: fixed;
+    z-index: 1; /* Asegura que esté encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con opacidad */
+}
+
+/* Estilo para el contenido del modal */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    margin: 10% auto;
+    width: 60%;
+    border-radius: 8px;
+}
+
+  /* Estilos opcionales para el editor */
+#editor-container {
+    min-height: 200px;
+}
+
+
+.modalNote {
+    display: none; /* Inicialmente está oculto */
+    position: fixed;
+    z-index: 1; /* Asegura que esté encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con opacidad */
+    overflow: auto;
+}
+
+.modal-content-note {
+    padding: 20px;
+    margin: 10% auto;
+    width: 55%;
+    border-radius: 8px;
+}
+
+.note-content {
+    font-weight: normal !important;
+    
+}

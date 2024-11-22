@@ -43,6 +43,7 @@ h4 {
     height: 70px;
     width: 100%;
     padding: 15px 10%;
+    margin-bottom: 30px;
     justify-content: space-between;
     align-items: center;
 }
