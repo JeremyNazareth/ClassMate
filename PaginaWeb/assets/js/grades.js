@@ -1,10 +1,10 @@
-const notesContainer = document.getElementById('notesContainer');
+const gradesContainer = document.getElementById('grades-container');
 const averageResult = document.getElementById('averageResult');
 const examResult = document.getElementById('examResult');
 
 // Función para agregar una nueva nota
 function addNoteBtn (){
-    const noteCount = notesContainer.getElementsByClassName('note-entry').length + 1;
+    const noteCount = gradesContainer.getElementsByClassName('note-entry').length + 1;
     const noteEntry = document.createElement('div');
     noteEntry.classList.add('note-entry');
     noteEntry.innerHTML = `
@@ -13,14 +13,14 @@ function addNoteBtn (){
         <input type="text" class="ponderacion"> %
         
     `;
-    notesContainer.appendChild(noteEntry);
+    gradesContainer.appendChild(noteEntry);
 };
 
 // Función para eliminar la última nota
 function deleteNoteBtn(){
-    const noteEntries = notesContainer.getElementsByClassName('note-entry');
+    const noteEntries = gradesContainer.getElementsByClassName('note-entry');
     if (noteEntries.length > 1) {
-        notesContainer.removeChild(noteEntries[noteEntries.length - 1]);
+        gradesContainer.removeChild(noteEntries[noteEntries.length - 1]);
     }
 };
 

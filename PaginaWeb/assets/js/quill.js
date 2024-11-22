@@ -14,6 +14,7 @@ const quill = new Quill('#editor', {
 let isEditing = false
 function openEditor(){
     document.getElementById('modal').style.display = 'block';
+    console.log('whats');
     let title = document.getElementById('title');
     title.value  = '';
     isEditing = false;
