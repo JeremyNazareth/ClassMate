@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     const selectedBlockData = JSON.parse(sessionStorage.getItem('selectedBlock'));    
     //Variables for data from Block selected
-    selectedBlock = new Block (selectedBlockData.id,selectedBlockData.name,selectedBlockData.description,selectedBlockData.grades,selectedBlockData.tasks)    
+    selectedBlock = new Block (selectedBlockData.id,selectedBlockData.name,selectedBlockData.description,selectedBlockData.grades,selectedBlockData.tasks, selectedBlockData.notes)    
     let nameBlock = document.getElementById('nameSelectedBlock');
     let descriptionBlock = document.getElementById('descriptionSelectedBlock');    
     //To print the data of the JSON Block
@@ -11,7 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
     descriptionBlock.textContent = `${selectedBlock.description}`;
     showGrades();
     showActivities();
+    showNotes();
     updateTask();
+
 });
 
     //recuperamos los datos del formulario
@@ -65,7 +67,9 @@ function saveBlockToSessionStorage() {
         const block = blocks.find(b => b.id === selectedBlock.id)
         block.grades = selectedBlock.grades
         block.tasks = selectedBlock.tasks
+        block.notes = selectedBlock.notes
         sessionStorage.setItem('blocks', JSON.stringify(blocks));
+        console.log(block);
     } else {
         console.error('selectedBlock no está definido.');
     }
@@ -191,5 +195,5 @@ function updateTask() {
 }
 
 function selectedBlockLog(){
-    console.log("Notas: " + selectedBlock.grades + " " + "Tareas: " + JSON.stringify(selectedBlock.tasks));
+    console.log(selectedBlock.notes);
 };

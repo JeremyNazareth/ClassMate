@@ -1,11 +1,12 @@
 //Block class is created
 class Block{
-    constructor(id, name, description, grades = [], tasks = []){
+    constructor(id, name, description, grades = [], tasks = [], notes = []){
         this.id = id;
         this.name = name;
         this.description = description;
         this.grades = grades;
         this.tasks = tasks;
+        this.notes = notes;
     }
 
     addGrade(gradeName,grade,ponderation) {
@@ -18,7 +19,6 @@ class Block{
     }
 
     removeGrade(index){
-        console.log(index);
         this.grades.splice(index,1);
     }
     
@@ -33,7 +33,17 @@ class Block{
 
     removeTask(index) {
         this.tasks.splice(index, 1);
-        console.log("Tarea eliminada.");
     }
 
+    addNote(title,content){
+        const note = {
+            title : title,
+            content : content
+        }
+        this.notes.push(note);
+    }
+
+    removeNote(index){
+        this.notes.splice(index, 1);
+    }
 }
