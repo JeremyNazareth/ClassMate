@@ -33,20 +33,25 @@
         </nav>
     </header>
 
-
-
-    <div class="modal d-flex" style="justify-content: center;">
-        <div class="card" style="width: 30%;">
-            <div class="card-header" style="text-align: center">
-                TITULO
-            </div>
-            <div class="card-body">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam magnam pariatur quos fugit enim. Rem error excepturi in placeat inventore eaque atque dicta explicabo corrupti numquam, cumque nihil ipsam facilis?
-            </div>
-            <button class="btn btn-danger">cerrar</button>
+    <div class="creator-container">
+        <div class="card">
+            <form>
+                <div class="mb-3">
+                    <label for="labelName" class="form-label">Nombre del bloque</label>
+                    <input type="text" class="form-control" id="labelName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="labelDescription" class="form-label">Descripción del bloque</label>
+                    <input type="text" class="form-control"  id="labelDescription" required>
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="createblock()" >Submit</button>
+        
+            </form>
         </div>
     </div>
     
     
+
+
 </body>
 </html>

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-    //recuperamos los datos del formulario
+    
 
 function addingGrade(){
     
@@ -39,7 +39,10 @@ function removingGrade(index){
 function showGrades(){
     // Verificar si selectedBlock tiene calificaciones
     const gradesContainer = document.getElementById('gradesContainer');
+    const gpa = document.getElementById('gpa');
     gradesContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos elementos
+    let productsSum = 0;
+    let ponderationSum = 0;
     
     if (selectedBlock && selectedBlock.grades.length > 0) {
         selectedBlock.grades.forEach((grade, index) => {
@@ -52,9 +55,17 @@ function showGrades(){
                 <p style="width: 50%;">${grade.ponderation}%</p>
                 <button class="btn btn-danger" onclick = "removingGrade(${index})"> Eliminar nota</button>
             `;
-
+            //Grade Point Average
+            productsSum += grade.grade * (grade.ponderation / 100);
+            ponderationSum += grade.ponderation;
+            
             gradesContainer.appendChild(gradeDiv);
         });
+        if (ponderationSum === 100) {
+            gpa.textContent = `Tu promedio: ${productsSum}`;
+        } else{
+            gpa.textContent = `Las ponderaciones deben sumar hasta el 100% para tener un promedio.`;
+        }
     } else {
         // Si no hay calificaciones, mostrar un mensaje vacío
         gradesContainer.innerHTML = '<p class="text-danger">No hay calificaciones para mostrar.</p>';

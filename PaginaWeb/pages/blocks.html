@@ -36,96 +36,23 @@
     </h1>
     <button class="btn btn-primary" onclick="consoleDebug()">Consultar</button>
     <div class="blockContainer">
-        <div class="container">
-            <div class="blockCreator">
-                <h2 class="subtitle">
-                    Creación de bloques
-                </h2>
-                <div class="blockText">
-                    
-                    <form>
-                        <table>
-                            <tr>
-                                <td class="labelText">
-                                    <label for="labelName">
-                                        Nombre:
-                                    </label>
-                                </td>
-                                <td>
-                                    <input type="text" placeholder="Ingresa el nombre del nuevo bloque..." class="blockInput" id="labelName">
-                                </td>                            
-                            </tr>
-                            <tr>
-                                <td class="labelText">
-                                    <label for="labelDescription" class="labelText">
-                                        Descripción:
-                                    </label>
-                                </td>
-                                <td>
-                                    <input type="text" placeholder="Ingresa una breve descripción del boque..."  id="labelDescription">
-                                </td>
-                            </tr>
-                            </label>
-                            
-                        </table>
-                        
-                    </form>
-                    
-                </div>
-                <button style="margin-top: 10px;" class="btn btn-primary" onclick="createblock()">
-                    Crear Bloque
-                </button>
+        <div class="creator-container">
+            <div class="card">
+                <form>
+                    <div class="mb-3">
+                        <label for="labelName" class="form-label">Nombre del bloque</label>
+                        <input type="text" class="form-control" id="labelName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="labelDescription" class="form-label">Descripción del bloque</label>
+                        <input type="text" class="form-control"  id="labelDescription" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="createblock()">Submit</button>
+            
+                </form>
             </div>
         </div>
         
-        <div class="container">
-            <div class="blockOutput">
-                <h2 >
-                    Bloque creado
-                </h2>
-                <div class="blockText">
-                    
-                    <form>
-                        <table>
-                            <tr>
-                                <td class="labelText">
-                                    <label for="idOutput">
-                                        Id:
-                                    </label>
-                                </td>
-                                <td class="labelOutput">
-                                    <div id="idOutput"></div>
-                                </td>                            
-                            </tr>
-                            <tr>
-                                <td class="labelText">
-                                    <label for="nameOutput">
-                                        Nombre:
-                                    </label>
-                                </td>
-                                <td class="labelOutput">
-                                    <div id="nameOutput"></div>
-                                </td>                            
-                            </tr>
-                            <tr>
-                                <td class="labelText">
-                                    <label for="descriptionOutput" class="labelText">
-                                        Descripción:
-                                    </label>
-                                </td>
-                                <td class="labelOutput">
-                                    <div id="descriptionOutput"></div>
-                                </td>
-                            </tr>
-                            </label>
-                            
-                        </table>
-                        
-                    </form>
-                    
-                </div>
-            </div>
-        </div>
     </div>
 
     <h1 class="title">

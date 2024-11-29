@@ -28,7 +28,7 @@
 .blockOutput{
     border: 1px solid #ccc;
     border-radius: 15px;
-    background-color: blueviolet;
+    background-color: white;
     color: white;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -90,6 +90,7 @@ input:-webkit-autofill:active{
     text-align: start;
     margin-right: 0;
     margin-left: 0;
+    color: black;
 }
 .blockButton{
     padding: 5px;
@@ -104,3 +105,15 @@ input:-webkit-autofill:active{
     color: white;
 }
 
+.creator-container{
+    width: 20%;
+    padding: 16px;
+}
+
+.card {
+    padding: 16px;
+}
+
+td{
+    color: black;
+}

@@ -30,8 +30,6 @@ function createblock () {
         document.getElementById('nameOutput').textContent = newBlock.name;
         document.getElementById('descriptionOutput').textContent = newBlock.description;        
         showBlocks();
-    } else{
-        alert('Complete los campos.'); //alert if the labels are empty.
     }
 }
 
