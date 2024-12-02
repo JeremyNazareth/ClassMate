@@ -109,7 +109,7 @@ function showActivities(){
         selectedBlock.tasks.forEach((task, index) => {
             const taskDiv = document.createElement('div');
             taskDiv.className = 'task';
-
+            
             // Parse dates
             const endDate = new Date(task.endTask);
             const currentDate = new Date();

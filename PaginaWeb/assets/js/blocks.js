@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
 let idCount = 0;
 const blocks = [];
 //this fuction is used by the create button on blocks.html.
-function createblock () {
-
+function createblock (event) {
+    event.preventDefault();
     //we create the variables that are used for retrieve the data from the labels.
     const labelName = document.getElementById('labelName').value;
     const labelDescription = document.getElementById('labelDescription').value;
@@ -25,10 +25,6 @@ function createblock () {
         blocks.push(newBlock);
         //we convert the array in JSON and save it in a sessionStorage
         sessionStorage.setItem('blocks', JSON.stringify(blocks));
-        //We retrieve the data for output purposes.
-        document.getElementById('idOutput').textContent = newBlock.id;
-        document.getElementById('nameOutput').textContent = newBlock.name;
-        document.getElementById('descriptionOutput').textContent = newBlock.description;        
         showBlocks();
     }
 }

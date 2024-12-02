@@ -33,22 +33,51 @@
         </nav>
     </header>
 
-    <div class="creator-container">
-        <div class="card">
-            <form>
-                <div class="mb-3">
-                    <label for="labelName" class="form-label">Nombre del bloque</label>
-                    <input type="text" class="form-control" id="labelName" required>
-                </div>
-                <div class="mb-3">
-                    <label for="labelDescription" class="form-label">Descripción del bloque</label>
-                    <input type="text" class="form-control"  id="labelDescription" required>
-                </div>
-                <button type="submit" class="btn btn-primary" onclick="createblock()" >Submit</button>
-        
-            </form>
-        </div>
-    </div>
+    <table class="activity-table">
+        <thead>
+            <tr>
+                <th>Actividades</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Card 1 -->
+            <tr>
+                <td>
+                    <div class="activity-card">
+                        <h3 class="activity-name">Nombre de la actividad 1</h3>
+                        <p><strong>Fecha de Término:</strong> 2024-12-05</p>
+                        <p><strong>Fecha Final:</strong> 2024-12-10</p>
+                        <p><strong>Días Restantes:</strong> 5 días</p>
+                    </div>
+                </td>
+            </tr>
+            
+            <!-- Card 2 -->
+            <tr>
+                <td>
+                    <div class="activity-card">
+                        <h3 class="activity-name">Nombre de la actividad 2</h3>
+                        <p><strong>Fecha de Término:</strong> 2024-11-25</p>
+                        <p><strong>Fecha Final:</strong> 2024-11-30</p>
+                        <p><strong>Días Restantes:</strong> 3 días</p>
+                    </div>
+                </td>
+            </tr>
+            
+            <!-- Card 3 -->
+            <tr>
+                <td>
+                    <div class="activity-card">
+                        <h3 class="activity-name">Nombre de la actividad 3</h3>
+                        <p><strong>Fecha de Término:</strong> 2024-12-12</p>
+                        <p><strong>Fecha Final:</strong> 2024-12-15</p>
+                        <p><strong>Días Restantes:</strong> 8 días</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
     
     
 

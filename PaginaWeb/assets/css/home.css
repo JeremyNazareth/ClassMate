@@ -30,12 +30,23 @@ body {
 
 .data-container{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin-top: 100px;
     width: 100%;
     
 }
 
+.no-data-container{
+    display: block;
+}
+
 .blocks-container{
     width: 60%;
 }
+
+.activities-container{
+    width: 60%;
+}
+
