@@ -1,9 +1,12 @@
-
 let blocks = [];
-document.addEventListener("DOMContentLoaded", function(){    
-    blocks = JSON.parse(sessionStorage.getItem('blocks'));
+
+document.addEventListener("DOMContentLoaded", function(){        
+    let storedBlocks = sessionStorage.getItem('blocks');
+    blocks = storedBlocks ? JSON.parse(storedBlocks) : []; 
     showBlocks();
     showActivities();
+    showGrades();
+    showNotes();
 });
 
 
@@ -24,8 +27,8 @@ function showBlocks(){
             blockDiv.className = 'block-container';
             blockDiv.innerHTML = `
             <li class="list-group-item" block>
-                <h4>Nombre del bloque: ${block.name}</h4>
-                <h4>Descripción del bloque: ${block.description}</h4>
+                <h4>Bloque: ${block.name}</h4>
+                <h4>Descripción: ${block.description}</h4>
             </li>
             `;
             blocksDiv.appendChild(blockDiv);    
@@ -39,7 +42,7 @@ function showBlocks(){
 
 function showActivities(){
     let activities = [];
-    let activitiesDataContainer = document.getElementById('activities-data-container');
+    let activitiesMainContainer = document.getElementById('activities-main-container');
     let activitiesContainer = document.getElementById('activities-container');
     
     blocks.forEach((block, index) =>{
@@ -50,10 +53,10 @@ function showActivities(){
     });
 
     if (activities.length === 0){
-        activitiesDataContainer.style.display = 'none';
+        activitiesMainContainer.style.display = 'none';
     } else{
         
-        activitiesDataContainer.style.display = 'block';
+        activitiesMainContainer.style.display = 'block';
     }
     
     activities.sort((a, b ) => new Date(a.endTask) - new Date(b.endTask));
@@ -90,11 +93,93 @@ function showActivities(){
         activityDiv.className = "list-group-item";
         activityDiv.style = taskColor;
         activityDiv.innerHTML = `
-        <h4>Nombre de actividad: ${activity.name}</h4>
+        <h4>Actividad: ${activity.name}</h4>
         <h4>Fecha de inicio: ${activity.startTask}</h4>
         <h4>Fecha de termino: ${activity.endTask}</h4>
+        <h4>Quedan ${daysLeft} Días</h4>
         `;
         activitiesContainer.appendChild(activityDiv);
     });
 
+}
+
+function showGrades(){
+    let grades = [];
+    let gradesMainContainer = document.getElementById('grades-main-container');
+    let gradesContainer = document.getElementById('grades-container');
+
+
+    blocks.forEach(block =>{
+        block.grades.forEach (grade =>{
+            grades.push(grade);
+            console.log("Se agregó " + grade + " a la lista.")
+        })
+        
+    });
+    
+
+    if(grades.length === 0){        
+        gradesMainContainer.style.display = 'none';
+    } else {
+        gradesMainContainer.style.display = 'block';
+        blocks.forEach((block, index) => {
+            let gradeMainDiv = document.createElement('li');
+            let gradeNameDiv = document.createElement('div');
+            let gradeDiv = document.createElement('div');
+
+            gradeMainDiv.className = 'list-group-item';
+            gradeDiv.style.display = 'flex';
+            gradeNameDiv.innerHTML = `
+            <h4>Bloque: ${block.name}</h4>
+            `;
+
+            gradeMainDiv.appendChild(gradeNameDiv);
+            
+            block.grades.forEach(grade =>{
+                let gradeDataDiv = document.createElement('div');
+                gradeDataDiv.innerHTML = '';
+                gradeDataDiv.innerHTML = `
+                <div style="display: flex;">
+                    <h5> ${grade.name}:&nbsp;</h5>
+                    <h5 style="font-weight: normal;">${grade.grade}, ${grade.ponderation}% &nbsp;</h5>
+                <div>
+                `;
+                gradeDiv.appendChild(gradeDataDiv);
+                
+            })
+
+            gradeMainDiv.appendChild(gradeDiv);
+            gradesContainer.appendChild(gradeMainDiv);    
+
+            
+        });  
+    }
+}
+
+function showNotes(){
+    let notes = [];
+    let notesMainContainer = document.getElementById('notes-main-container');
+    let notesContainer = document.getElementById('notes-container');
+
+    blocks.forEach((block, index) =>{
+        block.notes.forEach(note =>{
+            notes.push(note);
+        })
+        
+    });
+
+    if(notes.length === 0){        
+        notesMainContainer.style.display = 'none';
+    } else {
+        notesMainContainer.style.display = 'block';
+
+        notes.forEach(note =>{
+            noteDiv = document.createElement('li');
+            noteDiv.className = 'list-group-item';
+            noteDiv.innerHTML = `
+                <h4>Apunte: ${note.title}</h4>
+            `;
+            notesContainer.appendChild(noteDiv);
+        })
+    }
 }

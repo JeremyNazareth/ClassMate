@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log(sessionStorage.getItem('idCount'));
+    idCount = Number(sessionStorage.getItem('idCount'));
     const savedBlocks = sessionStorage.getItem('blocks');
     if (savedBlocks) {
         // Si existen datos guardados, conviértelos a objetos y cárgalos en el array `blocks`
@@ -6,10 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Muestra los bloques recuperados en la interfaz
         showBlocks();
     }
+
 });
 //this variable is added later to assign an id to a new block.
 let idCount = 0;
 const blocks = [];
+
 //this fuction is used by the create button on blocks.html.
 function createblock (event) {
     event.preventDefault();
@@ -21,6 +25,8 @@ function createblock (event) {
     if (labelName && labelDescription){
         //we increment by one the track of the ids and we create the new block with the new parameters from the labels.
         const id = `${idCount++}`;
+        sessionStorage.setItem('idCount',idCount.toString())
+        console.log(sessionStorage.getItem('idCount'));
         const newBlock = new Block(id,labelName,labelDescription)
         blocks.push(newBlock);
         //we convert the array in JSON and save it in a sessionStorage
