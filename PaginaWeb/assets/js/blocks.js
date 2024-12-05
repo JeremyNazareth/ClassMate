@@ -15,8 +15,8 @@ let idCount = 0;
 const blocks = [];
 
 //this fuction is used by the create button on blocks.html.
-function createblock (event) {
-    event.preventDefault();
+function createblock () {
+    
     //we create the variables that are used for retrieve the data from the labels.
     const labelName = document.getElementById('labelName').value;
     const labelDescription = document.getElementById('labelDescription').value;

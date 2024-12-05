@@ -7,8 +7,12 @@ document.addEventListener("DOMContentLoaded", function() {
     let nameBlock = document.getElementById('nameSelectedBlock');
     let descriptionBlock = document.getElementById('descriptionSelectedBlock');    
     //To print the data of the JSON Block
-    nameBlock.textContent = `${selectedBlock.name}`;
-    descriptionBlock.textContent = `${selectedBlock.description}`;
+    nameBlock.innerHTML = `
+    <h1>Bloque: ${selectedBlock.name}</h1>
+    `;
+    descriptionBlock.innerHTML = `
+    <h1>Descripción: ${selectedBlock.name}</h1>
+    `;
     showGrades();
     showActivities();
     showNotes();
