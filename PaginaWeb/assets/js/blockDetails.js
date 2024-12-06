@@ -42,37 +42,37 @@ function removingGrade(index){
 }
 function showGrades(){
     // Verificar si selectedBlock tiene calificaciones
-    const gradesContainer = document.getElementById('gradesContainer');
+    const gradesTable = document.getElementById('grades-table-body');
     const gpa = document.getElementById('gpa');
-    gradesContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos elementos
+    gradesTable.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos elementos
     let productsSum = 0;
     let ponderationSum = 0;
     
     if (selectedBlock && selectedBlock.grades.length > 0) {
         selectedBlock.grades.forEach((grade, index) => {
             // Crear un contenedor para cada nota
-            const gradeDiv = document.createElement('div');
-            gradeDiv.className = 'grade';
-            gradeDiv.innerHTML = `
-                <h3 style="width: 100%; margin-bottom: 5px;">${grade.name}</h3>
-                <p style="width: 50%;">${grade.grade}</p>
-                <p style="width: 50%;">${grade.ponderation}%</p>
-                <button class="btn btn-danger" onclick = "removingGrade(${index})"> Eliminar nota</button>
+            const gradeTr = document.createElement('tr');
+            gradeTr.innerHTML = ``;
+            gradeTr.innerHTML = `
+                <tr>
+                    <td>${grade.name}</td>
+                    <td>${grade.grade}</td>
+                    <td>${grade.ponderation}%</td>
+                    <td><button class="btn btn-danger btn-delete" onclick = "removingGrade(${index})"> <i class="material-icons">delete</i></button></td>
+                </tr>
+                
             `;
             //Grade Point Average
             productsSum += grade.grade * (grade.ponderation / 100);
             ponderationSum += grade.ponderation;
             
-            gradesContainer.appendChild(gradeDiv);
+            gradesTable.appendChild(gradeTr);
         });
         if (ponderationSum === 100) {
-            gpa.textContent = `Tu promedio: ${productsSum}`;
+            gpa.textContent = `Tu promedio es: ${productsSum}`;
         } else{
             gpa.textContent = `Las ponderaciones deben sumar hasta el 100% para tener un promedio.`;
         }
-    } else {
-        // Si no hay calificaciones, mostrar un mensaje vacío
-        gradesContainer.innerHTML = '<p class="text-danger">No hay calificaciones para mostrar.</p>';
     }
 }
 
@@ -106,12 +106,12 @@ function removingActivity (index){
     showActivities();
 }
 function showActivities(){
-    const tasksContainer = document.getElementById('tasks-container');
+    const tasksContainer = document.getElementById('activities-table-body');
     tasksContainer.innerHTML = '';
     
     if (selectedBlock && selectedBlock.tasks.length > 0){
         selectedBlock.tasks.forEach((task, index) => {
-            const taskDiv = document.createElement('div');
+            const taskDiv = document.createElement('tr');
             taskDiv.className = 'task';
             
             // Parse dates
@@ -146,21 +146,13 @@ function showActivities(){
             taskDiv.style = taskColor;
 
             taskDiv.innerHTML = `
-            <div class="task-header">
-                <div>${task.name}</div>
-                <button onclick="removingActivity(${index})" class="btn btn-danger">Eliminar</button>
-            </div>
-            <div class="date-container">
-                <label>
-                    <span>Inicio:</span>
-                    <div>${task.startTask}</div>
-                </label>
-                <label>
-                    <span>Fin:</span>
-                    <div>${task.endTask}</div>
-                    <span class="${statusClass}">${statusText}</span>
-                </label>
-            </div>
+            <tr>
+                <td>${task.name}</td>
+                <td>${task.startTask}</td>
+                <td>${task.endTask}</td>
+                <td>${statusText}</td>
+                <td class="${statusClass}"><button class="btn btn-danger btn-delete" onclick = "removingActivity(${index})"> <i class="material-icons">delete</i></button></td>
+            </tr>
             `;
             tasksContainer.appendChild(taskDiv);
         });

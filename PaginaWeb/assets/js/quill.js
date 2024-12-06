@@ -62,33 +62,33 @@ function removeNote(index){
     showNotes();
 }
 function showNotes(){
-    const notesContainer= document.getElementById('notesContainer');
+    const notesContainer= document.getElementById('notes-table-body');
     notesContainer.innerHTML = '';
     selectedBlock.notes.forEach((note, index) =>{
-        const noteDiv = document.createElement('div');
+        const noteDiv = document.createElement('tr');
         noteDiv.innerHTML=`
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div>
-                    ${note.title}
-                </div>
-                <div class="justify-content-center">
+            <tr>
+                <td>${note.title}</td>
+                <td>
                     <button class="btn btn-primary" onclick="editNote(${index})">
                         <span class="material-icons">
                             edit_note
                         </span>
                     </button>
+                </td>
+                <td>
                     <button class="btn btn-primary" onclick="showNote(${index})">
                         <span class="material-icons">
                             visibility
                         </span>
-                    </button>
+                    </button></td>
+                <td>
                     <button class="btn btn-danger" onclick="removeNote(${index})">
                         <span class="material-icons">
                             delete
                         </span>
-                    </button>
-                </div>
-            </li>
+                    </button></td>                
+            </tr>
         `
         notesContainer.appendChild(noteDiv);
     });

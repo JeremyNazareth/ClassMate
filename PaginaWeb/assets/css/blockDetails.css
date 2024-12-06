@@ -1,13 +1,19 @@
-
-
-
 .main-container{
     display: flex;
-    width: 70%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
-.container {
+.creator-containers{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
+    width: 80%;
+}
+
+.creator-container{
     justify-content: center;
     background-color: white;
     border: 1px solid #ddd;
@@ -17,6 +23,13 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 20%;
 }
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 
 .function-container{
     justify-content: center;
@@ -88,4 +101,8 @@
     grid-template-columns: repeat(15,15fr);
     gap: 10px; 
     padding: 12px;
+}
+
+.selectedBlock-data {
+    text-align: center;
 }

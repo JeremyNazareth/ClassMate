@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../assets/css/theme.css">
     <link rel="stylesheet" href="../assets/css/blockDetails.css">
     <link rel="stylesheet" href="../assets/css/quill.css">
+    <link rel="stylesheet" href="../assets/css/tables.css">
     <script src="../assets/js/blockDetails.js" defer></script>
     <script src="../assets/js/blockClass.js" defer></script>
     <script src="../assets/js/blocks.js" defer></script>
@@ -23,131 +24,148 @@
     <header class="header"> 
         <a class="logo" href="home.html">ClassMate</a>
         <nav class="nav">
-            <a href="home.html"> Inicio </a>
-            <a href="blocks.html"> Bloques </a>
-            <div class="dropdown">
-                <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown"> Funciones </a>
+            <a href="home.html"> <h4>Inicio</h4></a>
+            <a href="blocks.html"> <h4>Bloques</h4></a>
+            <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" style="justify-content: start; text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6); font-size: 25px; margin-bottom: 6px;">Funciones</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <li><a class="dropdown-item" href="grades.html"><h3>Calculadora de notas</h3></a></li>
                     <li><a class="dropdown-item" href="to_do.html"><h3>Actividades</h3></a></li>
                 </ul>
-            </div>
             
-            <a href="grades.html"> Notas </a>
-            <a href="contact.html"> Contacto </a>
+            <a href="grades.html"> <h4>Notas</h4></a>
+            <a href="contact.html"><h4>Contacto</h4></a>
         </nav>
     </header>
 
-    <div id="nameSelectedBlock"></div>
-    <div id="descriptionSelectedBlock" style="text-align: center;"></div>
-    <h1 class="title" style="font-weight: bold;">Detalles del bloque</h1>
+    <div class="selectedBlock-data">
+        <div id="nameSelectedBlock"></div>
+        <div id="descriptionSelectedBlock"></div>
+        <h1 class="title" style="font-weight: bold;">Detalles del bloque:</h1>
+    </div>
+    
     
 
     <!--Components creators-->
     
 
     <div class="main-container">
-        <div class="container">
-            <div class="form-group">
-                <div class="context-container">
-                            <!--Grades creator-->
-                    <h4>Agregar calificacion</h4>
+        <div class="creator-containers">
+            <div class="creator-container">
+                <div class="form-group">
+                    <div class="context-container">
+                                <!--Grades creator-->
+                        <h4>Agregar calificacion</h4>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label for="gradeName" class="form-label">Nombre de la Nota</label>
+                            <input type="text" class="form-control" id="gradeName" placeholder="Ingrese el nombre de la nota" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="grade" class="form-label">Nota</label>
+                            <input type="text" class="form-control" id="grade" placeholder="Ingrese la nota" required pattern="^[0-9]+(\.[0-9]+)?$" title="Ingrese un número válido con hasta 2 decimales">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ponderation" class="form-label">Ponderación (%)</label>
+                            <input type="number" class="form-control" id="ponderation" placeholder="Ingrese la ponderación de la nota" required min="0" max="100">
+                        </div>
+                        <button class="btn btn-primary" type="button" style="margin-left: 10px;" onclick="addingGrade()"><i class="fas fa-plus"></i> Agregar nota</button>
+                    </form>
                 </div>
-                <form>
-                    <div class="mb-3">
-                        <label for="gradeName" class="form-label">Nombre de la Nota</label>
-                        <input type="text" class="form-control" id="gradeName" placeholder="Ingrese el nombre de la nota" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="grade" class="form-label">Nota</label>
-                        <input type="text" class="form-control" id="grade" placeholder="Ingrese la nota" required pattern="^[0-9]+(\.[0-9]+)?$" title="Ingrese un número válido con hasta 2 decimales">
-                    </div>
-                    <div class="mb-3">
-                        <label for="ponderation" class="form-label">Ponderación (%)</label>
-                        <input type="number" class="form-control" id="ponderation" placeholder="Ingrese la ponderación de la nota" required min="0" max="100">
-                    </div>
-                    <button class="btn btn-primary" type="button" style="margin-left: 10px;" onclick="addingGrade()"><i class="fas fa-plus"></i> Agregar nota</button>
-                </form>
+                
             </div>
-            
-        </div>
-
-        <div class="container">
-            <div class="form-group">
-                <div class="context-container">
-                        <!--Activities creator-->
-                    <h4>Agregar actividad</h4>
+    
+            <div class="creator-container">
+                <div class="form-group">
+                    <div class="context-container">
+                            <!--Activities creator-->
+                        <h4>Agregar actividad</h4>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label for="taskName" class="form-label">Nombre de la tarea</label>
+                            <input type="text" class="form-control" id="taskName" placeholder="Ingrese el nombre de la materia" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="startTask" class="form-label">Fecha de inicio</label>
+                            <input type="date" class="form-control" id="startTask">
+                        </div>
+                        <div class="mb-3">
+                            <label for="endTask" class="form-label">Fecha de limite</label>
+                            <input type="date" class="form-control" id="endTask">
+                        </div>
+                        <button class="btn btn-primary" type="button" style="margin-left: 10px;" onclick="addingActivity()"><i class="fas fa-plus"></i> Agregar tarea</button>
+                    </form>
                 </div>
-                <form>
-                    <div class="mb-3">
-                        <label for="taskName" class="form-label">Nombre de la tarea</label>
-                        <input type="text" class="form-control" id="taskName" placeholder="Ingrese el nombre de la materia" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="startTask" class="form-label">Fecha de inicio</label>
-                        <input type="date" class="form-control" id="startTask">
-                    </div>
-                    <div class="mb-3">
-                        <label for="endTask" class="form-label">Fecha de limite</label>
-                        <input type="date" class="form-control" id="endTask">
-                    </div>
-                    <button class="btn btn-primary" type="button" style="margin-left: 10px;" onclick="addingActivity()"><i class="fas fa-plus"></i> Agregar tarea</button>
-                </form>
+             
             </div>
-         
         </div>
     </div>
     
    <!--Notes creator-->
     
-    <button class="btn btn-primary" onclick="openEditor()" style="display: flex; margin-top: 50px; margin-bottom: 50px">
-        <span class="material-icons" style="margin-right: 5px;">
-        add
-        </span>
-        Agregar Apunte
-    </button>
+   <div class="container">
+        <button class="btn btn-primary btn-add" onclick="openEditor()">
+            <i class="material-icons">add</i>
+            Agregar Apunte
+        </button>
+   </div>
+    
 
     <!--Grades-->
-    
-    <div class="function-container">
-        <div class="form-group">
-            <div class="context-container">
-                <h4>Tus calificaciones</h4>
-            </div>
-            <div class="grades-container" id="grades-container">
-                <div class="grades-container" id="gradesContainer">
-                </div>
-            </div>
-            <div style="display: flex;">
-                <h4>
-                    
-                </h4>
-                <h4 id="gpa"></h4>
-            </div>
-        </div>
+
+    <div class="container" style="flex-direction: column;">
+        <table class="grades-table modern-table">
+            <thead>
+                <tr>
+                  <th>Evaluación</th>
+                  <th>Nota</th>
+                  <th>Ponderación</th>
+                  <th style="text-align: center;"><i class="material-icons">delete</i></th>
+                </tr>
+            </thead>
+            <tbody id="grades-table-body">
+            </tbody>
+        </table>
+        <h4 id="gpa" style="color: white; margin-top: 20px;"></h4>    
     </div>
 
     <!--Activities-->
 
-    <div class="function-container">
-        <div class="form-group">
-            <div class="context-container">
-                <h4>Tus actividades</h4>
-            </div>
-            <div class="tasks-container" id="tasks-container">
-                
-            </div>
-        </div>
+    <div class="container" style="flex-direction: column; margin-top: 50px;">
+        <table class="activities-table modern-table">
+            <thead>
+                <tr>
+                  <th>Actividad</th>
+                  <th>Fecha de inicio</th>
+                  <th>Fecha de termino</th>
+                  <th>Días restantes</th>
+                  <th style="text-align: center;"><i class="material-icons">delete</i></th>
+                </tr>
+            </thead>
+            <tbody id="activities-table-body">
+            </tbody>
+        </table>
     </div>
 
     <!--Notes-->
 
-    <div class="card" style="margin-top: 30px; margin-bottom: 30px; width: 60%;" >
-        <div class="card-header">
-            Apuntes 
-        </div>
-        <ul class="list-group list-group-flush notesContainer" id="notesContainer">
-        </ul>
+    <div class="container" style="flex-direction: column; margin-top: 50px;">
+        <table class="activities-table modern-table">
+            <thead>
+                <tr>
+                  <th>Apuntes</th>
+                  <th>&nbsp;</th>
+                  <th>&nbsp;</th>
+                  <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody id="notes-table-body">
+            </tbody>
+        </table>
+    </div>
+    <div class="footer" style="margin-top: 200px;">
+
     </div>
     
     <!--Modal panels for activities-->

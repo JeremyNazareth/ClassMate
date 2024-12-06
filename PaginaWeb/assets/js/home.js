@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(){
 function showBlocks(){
     let dataContainer = document.getElementById('data-container');
     let noDataContainer = document.getElementById('no-data-container');
-    let blocksDiv = document.getElementById('blocks-container');    
+    let blocksDiv = document.getElementById('blocks-table-body');    
     blocksDiv.innerHTML = "";
     
     if (blocks.length === 0){
@@ -23,13 +23,14 @@ function showBlocks(){
         noDataContainer.style.display = 'none';
         dataContainer.style.display = 'flex';
         blocks.forEach((block, index) => {
-            let blockDiv = document.createElement('div');
+            let blockDiv = document.createElement('tr');
             blockDiv.className = 'block-container';
             blockDiv.innerHTML = `
-            <li class="list-group-item" block>
-                <h4>Bloque: ${block.name}</h4>
-                <h4>Descripción: ${block.description}</h4>
-            </li>
+            <tr>
+                <td>${block.name}</td>
+                <td>${block.description}</td>
+            </tr>
+
             `;
             blocksDiv.appendChild(blockDiv);    
         });    
@@ -42,8 +43,8 @@ function showBlocks(){
 
 function showActivities(){
     let activities = [];
-    let activitiesMainContainer = document.getElementById('activities-main-container');
-    let activitiesContainer = document.getElementById('activities-container');
+    let activitiesMainContainer = document.getElementById('activities-container');
+    let activitiesContainer = document.getElementById('activities-table-body');
     
     blocks.forEach((block, index) =>{
         block.tasks.forEach(task =>{
@@ -56,13 +57,13 @@ function showActivities(){
         activitiesMainContainer.style.display = 'none';
     } else{
         
-        activitiesMainContainer.style.display = 'block';
+        activitiesMainContainer.style.display = 'flex';
     }
     
     activities.sort((a, b ) => new Date(a.endTask) - new Date(b.endTask));
 
     activities.forEach((activity, index) => {
-        let activityDiv = document.createElement('li');
+        let activityDiv = document.createElement('tr');
         const endDate = new Date(activity.endTask);
         const currentDate = new Date();
         const timeDiff = endDate - currentDate; // Diferencia en milisegundos
@@ -90,13 +91,15 @@ function showActivities(){
             statusClass = 'status-red';
             taskColor = 'background-color: #f8d7da;'; // Rojo claro
         }
-        activityDiv.className = "list-group-item";
+        
         activityDiv.style = taskColor;
         activityDiv.innerHTML = `
-        <h4>Actividad: ${activity.name}</h4>
-        <h4>Fecha de inicio: ${activity.startTask}</h4>
-        <h4>Fecha de termino: ${activity.endTask}</h4>
-        <h4>Quedan ${daysLeft} Días</h4>
+            <tr>
+                <td>${activity.name}</td>
+                <td>${activity.startTask}</td>
+                <td>${activity.endTask}%</td>
+                <td>Quedan ${daysLeft} Días</td>
+            </tr>                
         `;
         activitiesContainer.appendChild(activityDiv);
     });
@@ -105,12 +108,23 @@ function showActivities(){
 
 function showGrades(){
     let grades = [];
-    let gradesMainContainer = document.getElementById('grades-main-container');
-    let gradesContainer = document.getElementById('grades-container');
+    let gradesMainContainer = document.getElementById('grades-container');
+    let gradesContainer = document.getElementById('grades-table-body');
 
 
     blocks.forEach(block =>{
-        block.grades.forEach (grade =>{
+        block.grades.forEach ((grade, index) =>{
+            let gradeTr = document.createElement('tr');
+            gradeTr.innerHTML = `
+            <tr>
+                <td>${block.name}</td>
+                <td>${block.grades[index].name}</td>
+                <td>${block.grades[index].grade}</td>
+                <td>${block.grades[index].ponderation}%</td>
+                
+            </tr>
+            `;
+            gradesContainer.appendChild(gradeTr);
             grades.push(grade);
             console.log("Se agregó " + grade + " a la lista.")
         })
@@ -121,38 +135,8 @@ function showGrades(){
     if(grades.length === 0){        
         gradesMainContainer.style.display = 'none';
     } else {
-        gradesMainContainer.style.display = 'block';
-        blocks.forEach((block, index) => {
-            let gradeMainDiv = document.createElement('li');
-            let gradeNameDiv = document.createElement('div');
-            let gradeDiv = document.createElement('div');
-
-            gradeMainDiv.className = 'list-group-item';
-            gradeDiv.style.display = 'flex';
-            gradeNameDiv.innerHTML = `
-            <h4>Bloque: ${block.name}</h4>
-            `;
-
-            gradeMainDiv.appendChild(gradeNameDiv);
-            
-            block.grades.forEach(grade =>{
-                let gradeDataDiv = document.createElement('div');
-                gradeDataDiv.innerHTML = '';
-                gradeDataDiv.innerHTML = `
-                <div style="display: flex;">
-                    <h5> ${grade.name}:&nbsp;</h5>
-                    <h5 style="font-weight: normal;">${grade.grade}, ${grade.ponderation}% &nbsp;</h5>
-                <div>
-                `;
-                gradeDiv.appendChild(gradeDataDiv);
-                
-            })
-
-            gradeMainDiv.appendChild(gradeDiv);
-            gradesContainer.appendChild(gradeMainDiv);    
-
-            
-        });  
+        gradesMainContainer.style.display = 'flex';
+         
     }
 }
 
