@@ -32,7 +32,6 @@ function addingGrade(){
     saveBlockToSessionStorage();
     showGrades();
     updateTask();
-    event.preventDefault();
 }
 
 function removingGrade(index){    
@@ -41,16 +40,16 @@ function removingGrade(index){
     saveBlockToSessionStorage();
 }
 function showGrades(){
-    // Verificar si selectedBlock tiene calificaciones
+    
     const gradesTable = document.getElementById('grades-table-body');
     const gpa = document.getElementById('gpa');
-    gradesTable.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos elementos
+    gradesTable.innerHTML = '';
     let productsSum = 0;
     let ponderationSum = 0;
     
     if (selectedBlock && selectedBlock.grades.length > 0) {
         selectedBlock.grades.forEach((grade, index) => {
-            // Crear un contenedor para cada nota
+            
             const gradeTr = document.createElement('tr');
             gradeTr.innerHTML = ``;
             gradeTr.innerHTML = `
@@ -117,30 +116,31 @@ function showActivities(){
             // Parse dates
             const endDate = new Date(task.endTask);
             const currentDate = new Date();
-            const timeDiff = endDate - currentDate; // Diferencia en milisegundos
-            const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24)); // Convertir a días
+            const timeDiff = endDate - currentDate; 
+            const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
 
             let statusText = '';
             let statusClass = '';
             let taskColor = '';
 
-            // Cambiar color y estado según los días restantes
+            
             if (daysLeft > 5) {
                 statusText = 'Tienes tiempo';
                 statusClass = 'status-green';
-                taskColor = 'background-color: #d4edda;'; // Verde claro
+                taskColor = 'background-color: #d4edda;'; 
             } else if (daysLeft > 2) {
                 statusText = `Quedan ${daysLeft} días`;
                 statusClass = 'status-orange';
-                taskColor = 'background-color: #fff3cd;'; // Amarillo claro
+                taskColor = 'background-color: #fff3cd;';
             } else if (daysLeft < 3 && daysLeft > 0) {
                 statusText = `Quedan ${daysLeft} días`;
                 statusClass = 'status-orange';
-                taskColor = 'background-color: #fff3cd;'; // Amarillo claro
+                taskColor = 'background-color: #fff3cd;';
             } else {
+                
                 statusText = '¡Vencido!';
                 statusClass = 'status-red';
-                taskColor = 'background-color: #f8d7da;'; // Rojo claro
+                taskColor = 'background-color: #f8d7da;'; 
             }
 
             taskDiv.style = taskColor;
@@ -163,37 +163,37 @@ function showActivities(){
 function updateTask() {
     document.querySelectorAll('.task').forEach(task => {
         const dateInputs = task.querySelectorAll('input[type="date"]');
-        const startDateInput = dateInputs[0]; // Primer input (fecha de inicio)
-        const endDateInput = dateInputs[1]; // Segundo input (fecha de fin)
+        const startDateInput = dateInputs[0]; 
+        const endDateInput = dateInputs[1]; 
         const statusSpan = task.querySelector('.status');
-        const currentDate = new Date(); // Fecha actual del usuario
+        const currentDate = new Date(); 
         
-        // Verificar si existen los inputs de fecha
+        
         if (startDateInput && endDateInput || selectedBlock.tasks.length > 0) {
             
-            // Solo proceder si la fecha de fin está definida
+            
             if (endDateInput.value) {
-                const endDate = new Date(endDateInput.value); // Convertir la fecha final en un objeto Date
-                const daysLeft = Math.ceil((endDate - currentDate) / (1000 * 3600 * 24)); // Días restantes
+                const endDate = new Date(endDateInput.value);
+                const daysLeft = Math.ceil((endDate - currentDate) / (1000 * 3600 * 24)); 
 
-                // Asignar color de fondo de la tarea según los días restantes
+                
                 if (daysLeft > 7) {
-                    task.style.backgroundColor = '#d4edda'; // Verde claro (En plazo)
+                    task.style.backgroundColor = '#d4edda'; 
                     statusSpan.textContent = ' (En plazo)';
                     
                 } else if (daysLeft <= 7 && daysLeft > 3) {
-                    task.style.backgroundColor = '#fff3cd'; // Amarillo (Pronto)
+                    task.style.backgroundColor = '#fff3cd'; 
                     statusSpan.textContent = ' (Pronto)';
                 } else if (daysLeft <= 3 && daysLeft >= 0) {
-                    task.style.backgroundColor = '#f8d7da'; // Rojo claro (Urgente)
+                    task.style.backgroundColor = '#f8d7da'; 
                     statusSpan.textContent = ' (Urgente)';
                     
                 } else {
-                    task.style.backgroundColor = '#f8d7da'; // Rojo claro (Vencida)
+                    task.style.backgroundColor = '#f8d7da'; 
                     statusSpan.textContent = ' (Vencida)';
                 }
             } else {
-                task.style.backgroundColor = '#f9f9f9'; // Sin color (Sin fecha de fin)
+                task.style.backgroundColor = '#f9f9f9'; 
                 statusSpan.textContent = '';
             }
         }

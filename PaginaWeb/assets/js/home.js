@@ -83,10 +83,12 @@ function showActivities(){
             statusClass = 'status-orange';
             taskColor = 'background-color: #fff3cd;'; // Amarillo claro
         } else if (daysLeft < 2 && daysLeft > 0) {
+            console.log("menos q 2");
             statusText = `Quedan ${daysLeft} días`;
             statusClass = 'status-orange';
             taskColor = 'background-color: #fff3cd;'; // Amarillo claro
         } else {
+            console.log("ven");
             statusText = '¡Vencido!';
             statusClass = 'status-red';
             taskColor = 'background-color: #f8d7da;'; // Rojo claro
@@ -98,7 +100,7 @@ function showActivities(){
                 <td>${activity.name}</td>
                 <td>${activity.startTask}</td>
                 <td>${activity.endTask}%</td>
-                <td>Quedan ${daysLeft} Días</td>
+                <td>${statusText}</td>
             </tr>                
         `;
         activitiesContainer.appendChild(activityDiv);
@@ -142,8 +144,8 @@ function showGrades(){
 
 function showNotes(){
     let notes = [];
-    let notesMainContainer = document.getElementById('notes-main-container');
-    let notesContainer = document.getElementById('notes-container');
+    let notesMainContainer = document.getElementById('notes-container');
+    let notesContainer = document.getElementById('notes-table-body');
 
     blocks.forEach((block, index) =>{
         block.notes.forEach(note =>{
@@ -155,13 +157,19 @@ function showNotes(){
     if(notes.length === 0){        
         notesMainContainer.style.display = 'none';
     } else {
-        notesMainContainer.style.display = 'block';
+        notesMainContainer.style.display = 'flex';
 
         notes.forEach(note =>{
-            noteDiv = document.createElement('li');
+            noteDiv = document.createElement('tr');
             noteDiv.className = 'list-group-item';
             noteDiv.innerHTML = `
-                <h4>Apunte: ${note.title}</h4>
+                <tr>
+                    <td>
+                        ${note.title}
+                    </td>
+                    
+                </tr>
+                
             `;
             notesContainer.appendChild(noteDiv);
         })
