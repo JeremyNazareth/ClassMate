@@ -66,32 +66,35 @@ function showActivities(){
         let activityDiv = document.createElement('tr');
         const endDate = new Date(activity.endTask);
         const currentDate = new Date();
-        const timeDiff = endDate - currentDate; // Diferencia en milisegundos
-        const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24)); // Convertir a días
+        const timeDiff = endDate - currentDate; 
+        const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
     
         let statusText = '';
         let statusClass = '';
         let taskColor = '';
     
-        // Cambiar color y estado según los días restantes
+        
         if (daysLeft > 5) {
             statusText = 'Tienes tiempo';
             statusClass = 'status-green';
-            taskColor = 'background-color: #d4edda;'; // Verde claro
+            taskColor = 'background-color: #d4edda;';
         } else if (daysLeft > 3) {
             statusText = `Quedan ${daysLeft} días`;
             statusClass = 'status-orange';
-            taskColor = 'background-color: #fff3cd;'; // Amarillo claro
+            taskColor = 'background-color: #fff3cd;'; 
         } else if (daysLeft < 2 && daysLeft > 0) {
-            console.log("menos q 2");
+            console.log('a');
             statusText = `Quedan ${daysLeft} días`;
             statusClass = 'status-orange';
-            taskColor = 'background-color: #fff3cd;'; // Amarillo claro
+            taskColor = 'background-color: #fff3cd;'; 
+        } else if (daysLeft == 2 || daysLeft == 3) {
+            statusText = `Quedan ${daysLeft} días`;
+            statusClass = 'status-orange';
+            taskColor = 'background-color: #fff3cd;';     
         } else {
-            console.log("ven");
             statusText = '¡Vencido!';
             statusClass = 'status-red';
-            taskColor = 'background-color: #f8d7da;'; // Rojo claro
+            taskColor = 'background-color: #f8d7da;';
         }
         
         activityDiv.style = taskColor;
@@ -99,7 +102,7 @@ function showActivities(){
             <tr>
                 <td>${activity.name}</td>
                 <td>${activity.startTask}</td>
-                <td>${activity.endTask}%</td>
+                <td>${activity.endTask}</td>
                 <td>${statusText}</td>
             </tr>                
         `;
@@ -128,7 +131,7 @@ function showGrades(){
             `;
             gradesContainer.appendChild(gradeTr);
             grades.push(grade);
-            console.log("Se agregó " + grade + " a la lista.")
+            
         })
         
     });
