@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log(sessionStorage.getItem('idCount'));
     idCount = Number(sessionStorage.getItem('idCount'));
     const savedBlocks = sessionStorage.getItem('blocks');
     if (savedBlocks) {
@@ -25,8 +24,7 @@ function createblock () {
     if (labelName && labelDescription){
         //we increment by one the track of the ids and we create the new block with the new parameters from the labels.
         const id = `${idCount++}`;
-        sessionStorage.setItem('idCount',idCount.toString())
-        console.log(sessionStorage.getItem('idCount'));
+        sessionStorage.setItem('idCount',idCount.toString())        
         const newBlock = new Block(id,labelName,labelDescription)
         blocks.push(newBlock);
         //we convert the array in JSON and save it in a sessionStorage
