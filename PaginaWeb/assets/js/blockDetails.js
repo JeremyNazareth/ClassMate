@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <h1>Bloque: ${selectedBlock.name}</h1>
     `;
     descriptionBlock.innerHTML = `
-    <h1>Descripción: ${selectedBlock.name}</h1>
+    <h1>Descripción: ${selectedBlock.description}</h1>
     `;
     showGrades();
     showActivities();

@@ -1,48 +1,46 @@
-
 .modern-table {
-    width: 30%;
     align-items: center;
-    border-collapse: separate; /* Permite que los bordes no se junten */
-    border-spacing: 0; /* Espaciado entre las celdas */
-    border-radius: 10px; /* Bordes redondeados */
-    overflow: hidden; /* Asegura que las esquinas redondeadas no se salgan */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
-  }
+    border-collapse: separate; 
+    border-spacing: 0; 
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
   
-  .modern-table thead {
-    background-color: #6a0dad; /* Color de fondo para el encabezado */
-    color: white;
-  }
-  
-  .modern-table th, 
-  .modern-table td {
-    padding: 12px 15px; /* Espaciado interno */
-    text-align: left; /* Alineación del texto */
-  }
-  
-  .modern-table tbody tr {
-    background-color: #f9f9f9; /* Color de las filas */
-    transition: background-color 0.3s ease; /* Animación al pasar el cursor */
-  }
-  
-  .modern-table tbody tr:nth-child(even) {
-    background-color: #f1f1f1; /* Color alternativo para filas pares */
-  }
-  
-  .modern-table tbody tr:hover {
-    background-color: #ddd; /* Color al pasar el cursor */
-  }
-  
-  .modern-table th {
-    font-weight: bold;
-  }
-  
-  .modern-table td {
-    border-top: 1px solid #ddd; /* Línea entre las filas */
-  }
+.modern-table thead {
+  background-color: #6a0dad;
+  color: white;
+}
+
+.modern-table th, 
+.modern-table td {
+  padding: 12px 15px; 
+  text-align: left; 
+}
+
+.modern-table tbody tr {
+  background-color: #f9f9f9; 
+  transition: background-color 0.3s ease;
+}
+
+.modern-table tbody tr:nth-child(even) {
+  background-color: #f1f1f1; 
+}
+
+.modern-table tbody tr:hover {
+  background-color: #ddd; 
+}
+
+.modern-table th {
+  font-weight: bold;
+}
+
+.modern-table td {
+  border-top: 1px solid #ddd;
+}
   
 .activities-table {
-    width: 50%;
+    width: 525px;
 }
 
 .grades-table {

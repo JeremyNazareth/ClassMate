@@ -1,0 +1,30 @@
+.grade-editor-container {
+    width: 30%;
+}
+
+.grade-editor-table {
+    text-align: center;
+    border-collapse: separate;
+    table-layout: fixed;
+    width: 40%;
+}
+
+.grade-editor-table td{
+    font-weight: normal;
+    width: 1px;
+    
+}
+
+
+.grade-editor-table tr{
+    width: 1%;
+}
+
+.grade-editor-table th{
+    
+}
+
+.grade-editor-table input{
+    
+}
+

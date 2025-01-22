@@ -49,38 +49,24 @@ function showBlocks(){
         blockDiv.innerHTML = `
         <div class="container">
             <div class="blockOutput">
-                <h2>
+                <p class="name">
                     Bloque ${block.name}
-                </h2>
-                <div class="blockText">                    
-                    <form>
-                        <table>
-                            <tr>
-                                <td class="labelText">
-                                    <label>
-                                        Id:
-                                    </label>
-                                </td>
-                                <td>
-                                    ${block.id}
-                                </td>                            
-                            </tr>
-                            <tr>
-                                <td class="labelText">
-                                    <label class="labelText">
-                                        Descripción:
-                                    </label>
-                                </td>
-                                <td class="labelOutput">
-                                    ${block.description}
-                                </td>
-                            </tr>
-                            </label>
-                        </table>
-                    </form>
+                </p>
+                <div class="block-text ms-3">                    
+                    <p class="text">
+                        Id:
+                        <span class"id">${block.id}</span>
+                    </p>
+                    <p class="text">
+                        Descripción:
+                        <span class"id">${block.description}</span>
+                    </p>
                 </div>
-                <button class="btn btn-primary" style="margin-top:10px;" onclick="redirectToDetails('${block.id}')" margin-right: 15px;">Ver bloque</button>
-                <button class="btn btn-danger" style="margin-top:10px;" onclick="deleteBlock('${block.id}')">Eliminar</button>
+                <div style="display: flex;justify-content: end; gap: 5px; ">
+                    <button class="btn btn-primary" onclick="redirectToDetails('${block.id}')" margin-right: 15px;">Ver bloque</button>
+                <button class="btn btn-danger"" onclick="deleteBlock('${block.id}')">Eliminar</button>
+                </div>
+                
             </div>
             
         </div>`;

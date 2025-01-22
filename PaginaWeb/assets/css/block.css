@@ -17,25 +17,22 @@
     text-align: center;
 }
 
-.blockText{
+.block-text{
     margin-top: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: start;
     width: 100%;
 }
 
 .blockOutput{
     border: 1px solid #ccc;
-    border-radius: 15px;
     background-color: white;
     color: white;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 450px;
+    border-radius: 15px;
+    box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.5);
+    width: 375px;
     transition: transform 0.2s;
-    padding: 25px;
-    text-align: center;
+    padding: 20px;
 }
 
 .blockOutput h2{
@@ -76,13 +73,15 @@ input:-webkit-autofill:active{
     gap: 10%;
     
 }
+
 .blocksContainer{
     display: grid;
-    grid-template-columns: repeat(3, 3fr);
+    width: 100%;
+    grid-template-columns:  1fr 1fr 1fr;
     gap: 16px;
 }
 .labelText{
-    text-align: right;
+    
 }
 
 .labelOutput{
@@ -106,7 +105,7 @@ input:-webkit-autofill:active{
 }
 
 .creator-container{
-    width: 20%;
+    min-width: 20%;
     padding: 16px;
 }
 
@@ -114,6 +113,33 @@ input:-webkit-autofill:active{
     padding: 16px;
 }
 
+.name {
+    color: black;
+    font-size: 20px;
+}
+
+.text{
+    color: black;
+}
+
+.id {
+    color: black;
+    font-weight: normal;
+}
 td{
     color: black;
+}
+
+
+@media (max-width:1400px){
+    .blocksContainer{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width:1000px){
+    .blocksContainer{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
 }
