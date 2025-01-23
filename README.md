@@ -1,10 +1,13 @@
 # ClassMate - Mi Versión Personal
 
-## Descripción
-
 Este proyecto es una versión personalizada y mejorada de **ClassMate**, originalmente creado como parte de un proyecto colaborativo durante mis estudios universitarios en conjunto con **Edwin Pastrana**.
-
 En esta versión, he realizado mejoras basadas en mis necesidades y en el feedback recibido durante el desarrollo del proyecto original. Esta es ahora mi versión personal y continuada del proyecto.
+
+## Descripción
+ClassMate es una plataforma web diseñada para ayudar a estudiantes universitarios a organizar y optimizar su rendimiento académico mediante herramientas especializadas para cada materia.
+
+## Estado del Proyecto
+Actualmente en desarrollo - Se están agregando nuevas funcionalidades continuamente.
 
 ## Licencia
 
