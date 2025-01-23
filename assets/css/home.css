@@ -46,22 +46,22 @@ body {
     
 }
 
-.no-data-container{
+.no-data-container {
     display: block;
 }
 
-.blocks-container{
-    width: 60%;
+.blocks-table {
+    width: 550px;
 }
 
-.activities-container{
-    width: 60%;
+.activities-table {
+    width: 550px;
 }
 
-.grades-main-container{
-    width: 60%;
+.grades-table {
+    width: 550px;
 }
 
-.notes-container {
-    width: 60%;
+.notes-table {
+    width: 550px;
 }
