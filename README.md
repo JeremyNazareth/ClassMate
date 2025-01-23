@@ -9,8 +9,10 @@ ClassMate es una plataforma web diseñada para ayudar a estudiantes universitari
 ## Estado del Proyecto
 Actualmente en desarrollo - Se están agregando nuevas funcionalidades continuamente.
 
-## Licencia
+## Importante
+El sistema de guardado de datos solo funciona como SessionStorage, por ahora el proyecto solo es para muestra de funcionamiento.
 
+## Licencia
 Este proyecto está licenciado bajo la **Licencia Creative Commons Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0)**. Puedes usar, modificar y distribuir este código siempre que no sea con fines comerciales y se dé la debida atribución a **Jeremy Nazareth Reyes Riquelme** como autor de esta versión.
 
 Para más detalles, consulta los términos completos de la licencia en [CC BY-NC 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/).
